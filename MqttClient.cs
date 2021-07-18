@@ -13,7 +13,7 @@ using Adafruit_MQTT_Client.Models;
 
 namespace Adafruit_MQTT_Client
 {
-    public class MqttClient
+    public class MqttClient : Repositories.IMqttClient
     {
         private string _key;
 
