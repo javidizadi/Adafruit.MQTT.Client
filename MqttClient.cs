@@ -35,7 +35,10 @@ namespace Adafruit_MQTT_Client
         public string ClientId { get => _clientId; }
 
 
-        public MqttClient(string userName, string key, string clientId = null)
+        public MqttClient(
+            string userName,
+            string key,
+            string clientId = null)
         {
             _userName = userName;
 
@@ -51,13 +54,24 @@ namespace Adafruit_MQTT_Client
             }
         }
 
-        public MqttClient(string hostAddress, string userName, string key, string clientId = null)
+        public MqttClient(
+            string hostAddress,
+            string userName,
+            string key,
+            string clientId = null)
             : this(userName, key, clientId)
         {
             _hostAddress = hostAddress;
         }
 
-        public MqttClient(string hostAddress, int secureTcpPort, int inSecureTcpPort, string userName, string key, string clientId = null, bool isSecure = true)
+        public MqttClient(
+            string hostAddress,
+            int secureTcpPort,
+            int inSecureTcpPort,
+            string userName,
+            string key,
+            string clientId = null,
+            bool isSecure = true)
             : this(hostAddress, userName, key, clientId)
         {
             _secureTcpPort = secureTcpPort;
