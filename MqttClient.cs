@@ -145,26 +145,29 @@ namespace Adafruit_MQTT_Client
             await _client.DisconnectAsync(cancellationToken);
         }
 
-        public async Task<PublishResult> PublishAsync(string feedKey, string value)
+        public async Task<PublishResult> PublishFeedAsync(string feedKey, string value)
         {
             string topic = GetTopicFromFeedKey(feedKey);
 
+            return await PublishTopicAsync(topic, value);
+        }
+
+        public async Task<PublishResult> PublishTopicAsync(string topic,string value)
+        {
             var result = await _client.PublishAsync(topic, value);
 
             return (PublishResult)result;
-        }
-
-        public async Task<SubscribeResult> SubscribeTopicAsync(string topic)
-        {
-            var result = await _client.SubscribeAsync(topic);
-
-            return (SubscribeResult)result;
         }
 
         public async Task<SubscribeResult> SubscribeFeedAsync(string feedKey)
         {
             string topic = GetTopicFromFeedKey(feedKey);
 
+            return await SubscribeTopicAsync(topic);
+        }
+
+        public async Task<SubscribeResult> SubscribeTopicAsync(string topic)
+        {
             var result = await _client.SubscribeAsync(topic);
 
             return (SubscribeResult)result;
