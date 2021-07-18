@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
+using MQTTnet.Client.Receiving;
 
 using Adafruit_MQTT_Client.Models;
 
@@ -36,7 +37,14 @@ namespace Adafruit_MQTT_Client
 
         private IMqttClientOptions _connectionOptions;
 
+
         public string ClientId { get => _clientId; }
+
+        public IMqttApplicationMessageReceivedHandler MessageReceivedHandler
+        {
+            get => _client.ApplicationMessageReceivedHandler;
+            set => _client.ApplicationMessageReceivedHandler = value;
+        }
 
 
         public MqttClient(
@@ -139,14 +147,30 @@ namespace Adafruit_MQTT_Client
 
         public async Task<PublishResult> PublishAsync(string feedKey, string value)
         {
-            string topic = GetTopicNameFromFeedKey(feedKey);
+            string topic = GetTopicFromFeedKey(feedKey);
 
             var result = await _client.PublishAsync(topic, value);
 
             return (PublishResult)result;
         }
 
-        private string GetTopicNameFromFeedKey(string feedKey)
+        public async Task<SubscribeResult> SubscribeTopicAsync(string topic)
+        {
+            var result = await _client.SubscribeAsync(topic);
+
+            return (SubscribeResult)result;
+        }
+
+        public async Task<SubscribeResult> SubscribeFeedAsync(string feedKey)
+        {
+            string topic = GetTopicFromFeedKey(feedKey);
+
+            var result = await _client.SubscribeAsync(topic);
+
+            return (SubscribeResult)result;
+        }
+
+        private string GetTopicFromFeedKey(string feedKey)
         {
             return $"{_userName}/feeds/{feedKey}";
         }
