@@ -152,7 +152,7 @@ namespace Adafruit_MQTT_Client
             return await PublishTopicAsync(topic, value);
         }
 
-        public async Task<PublishResult> PublishTopicAsync(string topic,string value)
+        public async Task<PublishResult> PublishTopicAsync(string topic, string value)
         {
             var result = await _client.PublishAsync(topic, value);
 
@@ -171,6 +171,27 @@ namespace Adafruit_MQTT_Client
             var result = await _client.SubscribeAsync(topic);
 
             return (SubscribeResult)result;
+        }
+
+        public async Task<UnSubscribeResult> UnSubscribeFeedAsync(params string[] feedKeys)
+        {
+            var topics = new List<string>();
+
+            foreach (var FeedKey in feedKeys)
+            {
+                string topic = GetTopicFromFeedKey(FeedKey);
+
+                topics.Add(topic);
+            }
+
+            return await UnsubscribeTopicAsync(topics.ToArray());
+        }
+
+        public async Task<UnSubscribeResult> UnsubscribeTopicAsync(params string[] topics)
+        {
+            var result = await _client.UnsubscribeAsync(topics);
+
+            return (UnSubscribeResult)result;
         }
 
         private string GetTopicFromFeedKey(string feedKey)
