@@ -74,8 +74,7 @@ namespace Adafruit_MQTT_Client
             int inSecureTcpPort,
             string userName,
             string key,
-            string clientId = null,
-            bool isSecure = true)
+            string clientId = null)
             : this(hostAddress, userName, key, clientId)
         {
             _secureTcpPort = secureTcpPort;
