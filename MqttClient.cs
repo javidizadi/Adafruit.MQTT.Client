@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 
+using Adafruit_MQTT_Client.Models;
+
 namespace Adafruit_MQTT_Client
 {
     public enum ConnectionMode
@@ -134,6 +136,15 @@ namespace Adafruit_MQTT_Client
         public async Task DisconnectAsync(CancellationToken cancellationToken)
         {
             await _client.DisconnectAsync(cancellationToken);
+        }
+
+        public async Task<PublishResult> PublishAsync(string feedKey, string value)
+        {
+            string topic = GetTopicNameFromFeedKey(feedKey);
+
+            var result = await _client.PublishAsync(topic, value);
+
+            return (PublishResult)result;
         }
 
         private string GetTopicNameFromFeedKey(string feedKey)
