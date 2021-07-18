@@ -126,6 +126,16 @@ namespace Adafruit_MQTT_Client
             await _client.ConnectAsync(_connectionOptions, cancellationToken);
         }
 
+        public async Task DisconnectAsync()
+        {
+            await _client.DisconnectAsync();
+        }
+
+        public async Task DisconnectAsync(CancellationToken cancellationToken)
+        {
+            await _client.DisconnectAsync(cancellationToken);
+        }
+
         private string GetTopicNameFromFeedKey(string feedKey)
         {
             return $"{_userName}/feeds/{feedKey}";
