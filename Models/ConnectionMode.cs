@@ -1,4 +1,4 @@
-﻿namespace Adafruit_MQTT_Client
+﻿namespace Adafruit_MQTT_Client.Models
 {
     public enum ConnectionMode
     {
