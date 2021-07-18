@@ -8,6 +8,7 @@ using MQTTnet.Client.Options;
 using MQTTnet.Client.Receiving;
 
 using Adafruit_MQTT_Client.Models;
+using MQTTnet;
 
 namespace Adafruit_MQTT_Client
 {
@@ -186,6 +187,11 @@ namespace Adafruit_MQTT_Client
             var result = await _client.UnsubscribeAsync(topics);
 
             return (UnSubscribeResult)result;
+        }
+
+        public IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler)
+        {
+            return _client.UseApplicationMessageReceivedHandler(handler);
         }
 
         private string GetTopicFromFeedKey(string feedKey)
