@@ -11,12 +11,6 @@ using Adafruit_MQTT_Client.Models;
 
 namespace Adafruit_MQTT_Client
 {
-    public enum ConnectionMode
-    {
-        WebSocket,
-        TCP
-    }
-
     public class MqttClient
     {
         private string _key;
@@ -110,7 +104,7 @@ namespace Adafruit_MQTT_Client
             else TcpPort = _inSecureTcpPort;
 
 
-            if (connectionMode == ConnectionMode.TCP)
+            if (connectionMode == ConnectionMode.Tcp)
             {
                 _connectionOptions = firstOptions
                     .WithTcpServer(_hostAddress, TcpPort)
