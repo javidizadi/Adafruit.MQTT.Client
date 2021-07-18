@@ -2,12 +2,36 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Company>-</Company>
+    <Authors>Javid izadi</Authors>
+    <Description>.Net Standard MQTT Client Library For Adafruit IOT Platform
+Powered By MQTTnet Nuget Package</Description>
+    <Copyright />
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/javidizadi/Adafruit.MQTT.Client</RepositoryUrl>
+    <PackageTags>Adafruit, iot, Mqtt Client, Mqtt, Client, client, mqtt, adafruit mqtt client, mqtt client</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>Javid.izadi.pfx</AssemblyOriginatorKeyFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression></PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="LICENSE" />
+    <None Remove="LICENSE" />
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MQTTnet" Version="3.0.16" />

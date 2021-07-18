@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Adafruit.MQTT.Client": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
