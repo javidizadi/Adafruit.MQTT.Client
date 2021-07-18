@@ -30,7 +30,7 @@ namespace Adafruit_MQTT_Client
 
         private IMqttClient _client;
 
-        private MqttClientOptionsBuilder _connectionOptions;
+        private IMqttClientOptions _connectionOptions;
 
         public string ClientId { get => _clientId; }
 
@@ -101,15 +101,13 @@ namespace Adafruit_MQTT_Client
 
             if (connectionMode == ConnectionMode.TCP)
             {
-                _connectionOptions =
-                    (MqttClientOptionsBuilder)firstOptions
+                _connectionOptions = firstOptions
                     .WithTcpServer(_hostAddress, TcpPort)
                     .Build();
             }
             else
             {
-                _connectionOptions =
-                    (MqttClientOptionsBuilder)firstOptions
+                _connectionOptions = firstOptions
                     .WithWebSocketServer(_hostAddress)
                     .Build();
             }
