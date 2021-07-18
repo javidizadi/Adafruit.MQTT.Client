@@ -85,7 +85,7 @@ namespace Adafruit_MQTT_Client
             _inSecureTcpPort = inSecureTcpPort;
         }
 
-        private void InitClient(ConnectionMode connectionMode, bool secureConnection)
+        public void InitClient(ConnectionMode connectionMode, bool secureConnection)
         {
             int TcpPort;
 
@@ -149,6 +149,11 @@ namespace Adafruit_MQTT_Client
 
         public async Task<PublishResult> PublishTopicAsync(string topic, string value)
         {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+
             var result = await _client.PublishAsync(topic, value);
 
             return (PublishResult)result;
@@ -163,6 +168,11 @@ namespace Adafruit_MQTT_Client
 
         public async Task<SubscribeResult> SubscribeTopicAsync(string topic)
         {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+
             var result = await _client.SubscribeAsync(topic);
 
             return (SubscribeResult)result;
@@ -184,6 +194,11 @@ namespace Adafruit_MQTT_Client
 
         public async Task<UnSubscribeResult> UnsubscribeTopicAsync(params string[] topics)
         {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+
             var result = await _client.UnsubscribeAsync(topics);
 
             return (UnSubscribeResult)result;
@@ -191,6 +206,11 @@ namespace Adafruit_MQTT_Client
 
         public IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler)
         {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+
             return _client.UseApplicationMessageReceivedHandler(handler);
         }
 
