@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using MQTTnet.Client.Receiving;
 
 using Adafruit_MQTT_Client.Models;
-using MQTTnet;
 
 namespace Adafruit_MQTT_Client
 {
