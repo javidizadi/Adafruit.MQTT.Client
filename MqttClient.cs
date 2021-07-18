@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 
@@ -112,6 +114,16 @@ namespace Adafruit_MQTT_Client
                     .Build();
             }
 
+        }
+
+        public async Task ConnectAsync()
+        {
+            await _client.ConnectAsync(_connectionOptions);
+        }
+
+        public async Task ConnectAsync(CancellationToken cancellationToken)
+        {
+            await _client.ConnectAsync(_connectionOptions, cancellationToken);
         }
 
         private string GetTopicNameFromFeedKey(string feedKey)
