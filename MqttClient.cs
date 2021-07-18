@@ -105,7 +105,7 @@ namespace Adafruit_MQTT_Client
                     .WithTcpServer(_hostAddress, TcpPort)
                     .Build();
             }
-            else
+            else if (connectionMode == ConnectionMode.WebSocket)
             {
                 _connectionOptions = firstOptions
                     .WithWebSocketServer(_hostAddress)
