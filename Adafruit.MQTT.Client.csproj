@@ -10,15 +10,15 @@
 in This Package You Can Connect to the adafruit IO With MQTT 
 Written in .Net Standard 2.1
 Powered By MQTTnet Nuget Package</Description>
-    <Copyright>© Javid izadi.</Copyright>
+    <Copyright>© Javid izadi</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/javidizadi/Adafruit.MQTT.Client</RepositoryUrl>
     <PackageTags>adafruit mqtt client .netstandard standard .net c# iot</PackageTags>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>Javid.izadi.pfx</AssemblyOriginatorKeyFile>
-    <PackageLicenseFile></PackageLicenseFile>
-    <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression></PackageLicenseExpression>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>1.1.0.0</FileVersion>
     <Version>1.1.0</Version>
@@ -32,6 +32,10 @@ Powered By MQTTnet Nuget Package</Description>
   <ItemGroup>
     <None Remove="LICENSE" />
     <None Remove="LICENSE" />
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
