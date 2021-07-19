@@ -1,11 +1,15 @@
-﻿using Adafruit_MQTT_Client.Models;
+﻿using Adafruit.MQTT.Client.Models;
 using MQTTnet;
 using MQTTnet.Client.Receiving;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adafruit_MQTT_Client.Repositories
+using Adafruit.MQTT.Client.Models.Publishing;
+using Adafruit.MQTT.Client.Models.Subscribing;
+using Adafruit.MQTT.Client.Models.UnSubscribing;
+
+namespace Adafruit.MQTT.Client.Repositories
 {
     public interface IMqttClient
     {

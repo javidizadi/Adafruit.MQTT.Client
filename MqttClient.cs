@@ -9,9 +9,12 @@ using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using MQTTnet.Client.Receiving;
 
-using Adafruit_MQTT_Client.Models;
+using Adafruit.MQTT.Client.Models;
+using Adafruit.MQTT.Client.Models.Publishing;
+using Adafruit.MQTT.Client.Models.Subscribing;
+using Adafruit.MQTT.Client.Models.UnSubscribing;
 
-namespace Adafruit_MQTT_Client
+namespace Adafruit.MQTT.Client
 {
     public class MqttClient : Repositories.IMqttClient
     {
@@ -157,7 +160,7 @@ namespace Adafruit_MQTT_Client
 
             var result = await _client.PublishAsync(topic, value);
 
-            return (PublishResult)result;
+            return new PublishResult(result);
         }
 
         public async Task<SubscribeResult> SubscribeFeedAsync(string feedKey)
@@ -176,7 +179,7 @@ namespace Adafruit_MQTT_Client
 
             var result = await _client.SubscribeAsync(topic);
 
-            return (SubscribeResult)result;
+            return new SubscribeResult(result);
         }
 
         public async Task<UnSubscribeResult> UnSubscribeFeedAsync(params string[] feedKeys)
@@ -202,7 +205,7 @@ namespace Adafruit_MQTT_Client
 
             var result = await _client.UnsubscribeAsync(topics);
 
-            return (UnSubscribeResult)result;
+            return new UnSubscribeResult(result);
         }
 
         public IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler)
