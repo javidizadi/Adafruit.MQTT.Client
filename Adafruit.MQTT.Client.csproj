@@ -8,9 +8,9 @@
     <Authors>Javid izadi</Authors>
     <Description>adafruit IO is an IOT Platform With MQTT or HTTP API Supporting 
 in This Package You Can Connect to the adafruit IO With MQTT 
-Writen in .Net Standard 2.1
+Written in .Net Standard 2.1
 Powered By MQTTnet Nuget Package</Description>
-    <Copyright />
+    <Copyright>© Javid izadi.</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/javidizadi/Adafruit.MQTT.Client</RepositoryUrl>
     <PackageTags>adafruit mqtt client .netstandard standard .net c# iot</PackageTags>
