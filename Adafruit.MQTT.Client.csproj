@@ -1,22 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Company>-</Company>
     <Authors>Javid izadi</Authors>
-    <Description>.Net Standard MQTT Client Library For Adafruit IOT Platform
+    <Description>adafruit IO is an IOT Platform With MQTT or HTTP API Supporting 
+in This Package You Can Connect to the adafruit IO With MQTT 
+Writen in .Net Standard 2.1
 Powered By MQTTnet Nuget Package</Description>
     <Copyright />
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/javidizadi/Adafruit.MQTT.Client</RepositoryUrl>
-    <PackageTags>Adafruit, iot, Mqtt Client, Mqtt, Client, client, mqtt, adafruit mqtt client, mqtt client</PackageTags>
+    <PackageTags>adafruit mqtt client .netstandard standard .net c# iot</PackageTags>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>Javid.izadi.pfx</AssemblyOriginatorKeyFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -27,10 +32,6 @@ Powered By MQTTnet Nuget Package</Description>
   <ItemGroup>
     <None Remove="LICENSE" />
     <None Remove="LICENSE" />
-    <None Include="LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
