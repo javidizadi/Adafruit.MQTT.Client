@@ -27,7 +27,11 @@ namespace Adafruit.MQTT.Client.Repositories
 
         void InitClient(ConnectionMode connectionMode, bool secureConnection);
 
+        MQTTnet.Client.IMqttClient OnConnected(Func<MQTTnet.Client.Connecting.MqttClientConnectedEventArgs, Task> handler);
+
         MQTTnet.Client.IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler);
+
+        MQTTnet.Client.IMqttClient OnDisconnected(Func<MQTTnet.Client.Disconnecting.MqttClientDisconnectedEventArgs, Task> handler);
 
         Task<PublishResult> PublishFeedAsync(string feedKey, string value);
 
