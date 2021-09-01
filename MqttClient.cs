@@ -39,6 +39,8 @@ namespace Adafruit.MQTT.Client
 
         public string ClientId { get => _clientId; }
 
+        public bool IsConnected { get => _client.IsConnected; }
+
         public IMqttApplicationMessageReceivedHandler MessageReceivedHandler
         {
             get => _client.ApplicationMessageReceivedHandler;
@@ -214,7 +216,6 @@ namespace Adafruit.MQTT.Client
             {
                 throw new Exception("Client not Init!");
             }
-
             return _client.UseApplicationMessageReceivedHandler(handler);
         }
 
