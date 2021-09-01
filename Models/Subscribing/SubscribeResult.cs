@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using MQTTnet.Client.Subscribing;
+﻿using MQTTnet.Client.Subscribing;
+
+using System.Collections.Generic;
 
 
 namespace Adafruit.MQTT.Client.Models.Subscribing

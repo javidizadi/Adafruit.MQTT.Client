@@ -1,6 +1,5 @@
 ﻿using MQTTnet.Client.Subscribing;
 
-
 namespace Adafruit.MQTT.Client.Models.Subscribing
 {
     public class SubscribeResultItem

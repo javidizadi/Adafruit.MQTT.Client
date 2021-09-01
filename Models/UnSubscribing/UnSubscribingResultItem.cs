@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Adafruit.MQTT.Client.Models.UnSubscribing
+﻿namespace Adafruit.MQTT.Client.Models.UnSubscribing
 {
     public class UnSubscribingResultItem
     {

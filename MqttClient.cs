@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Adafruit.MQTT.Client.Models;
+using Adafruit.MQTT.Client.Models.Publishing;
+using Adafruit.MQTT.Client.Models.Subscribing;
+using Adafruit.MQTT.Client.Models.UnSubscribing;
 
-using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using MQTTnet.Client.Receiving;
 
-using Adafruit.MQTT.Client.Models;
-using Adafruit.MQTT.Client.Models.Publishing;
-using Adafruit.MQTT.Client.Models.Subscribing;
-using Adafruit.MQTT.Client.Models.UnSubscribing;
-using MQTTnet.Client.Connecting;
-using MQTTnet.Client.Disconnecting;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Adafruit.MQTT.Client
 {

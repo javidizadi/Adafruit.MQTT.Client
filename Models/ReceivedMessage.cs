@@ -1,8 +1,8 @@
-using System;
-using System.Text;
-
 using MQTTnet;
 using MQTTnet.Protocol;
+
+using System;
+using System.Text;
 
 namespace Adafruit.MQTT.Client.Models
 {

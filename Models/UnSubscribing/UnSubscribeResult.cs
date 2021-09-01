@@ -1,5 +1,5 @@
-﻿using Adafruit.MQTT.Client.Models.UnSubscribing;
-using MQTTnet.Client.Unsubscribing;
+﻿using MQTTnet.Client.Unsubscribing;
+
 using System.Collections.Generic;
 
 namespace Adafruit.MQTT.Client.Models.UnSubscribing

@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using MQTTnet.Client.Publishing;
+﻿using MQTTnet.Client.Publishing;
+
+using System.Collections.Generic;
 
 namespace Adafruit.MQTT.Client.Models.Publishing
 {
