@@ -11,24 +11,30 @@ namespace Adafruit.MQTT.Client.Models.Publishing
 
         public ushort? PacketIdentifier { get; private set; }
 
-        public List<UserProperty> UserProperties;
+        public List<UserProperty> UserProperties { get; set; }
 
 
         public PublishResult(MqttClientPublishResult result)
         {
+            UserProperties = new List<UserProperty>();
+
             ReasonString = result.ReasonString;
 
             ReasonCode = result.ReasonCode;
 
             PacketIdentifier = result.PacketIdentifier;
 
-            foreach (var Property in result.UserProperties)
+            if (result.UserProperties != null)
             {
-                UserProperties.Add(new UserProperty
+
+                foreach (var Property in result.UserProperties)
                 {
-                    Name = Property.Name,
-                    Value = Property.Value
-                });
+                    UserProperties.Add(new UserProperty
+                    {
+                        Name = Property.Name,
+                        Value = Property.Value
+                    });
+                }
             }
         }
     }

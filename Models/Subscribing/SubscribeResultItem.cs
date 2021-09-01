@@ -7,7 +7,7 @@ namespace Adafruit.MQTT.Client.Models.Subscribing
     {
         public string Topic { get; private set; }
 
-        public MqttClientSubscribeResultCode ResultCode { get; private set; }
+        public MqttClientSubscribeResultCode ResultCode { get; }
 
         public SubscribeResultItem(MqttClientSubscribeResultItem result)
         {
