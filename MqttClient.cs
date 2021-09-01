@@ -43,6 +43,17 @@ namespace Adafruit.MQTT.Client
 
         public bool IsConnected { get => _client.IsConnected; }
 
+
+        public delegate void MessageReceived(Models.ReceivedMessageEventArgs args);
+        public event MessageReceived OnMessageReceived;
+
+        public delegate void ConnectedDelegate(EventArgs eventArgs);
+        public event ConnectedDelegate OnConnected;
+
+        public delegate void DisconnectedDelegate(EventArgs eventArgs);
+        public event DisconnectedDelegate OnDisconnected;
+
+
         public IMqttApplicationMessageReceivedHandler MessageReceivedHandler
         {
             get => _client.ApplicationMessageReceivedHandler;
@@ -67,6 +78,7 @@ namespace Adafruit.MQTT.Client
             {
                 _clientId = clientId;
             }
+
         }
 
         public MqttClient(
@@ -92,6 +104,8 @@ namespace Adafruit.MQTT.Client
 
             _inSecureTcpPort = inSecureTcpPort;
         }
+
+
 
         public void InitClient(ConnectionMode connectionMode, bool secureConnection)
         {
@@ -126,6 +140,17 @@ namespace Adafruit.MQTT.Client
                     .Build();
             }
 
+            EventsInit();
+
+        }
+
+        private void EventsInit()
+        {
+            _client.UseApplicationMessageReceivedHandler(e => OnMessageReceived?.Invoke(new ReceivedMessageEventArgs(e)));
+
+            _client.UseConnectedHandler(e => OnConnected?.Invoke(e));
+
+            _client.UseDisconnectedHandler(e => OnDisconnected?.Invoke(e));
         }
 
         public async Task ConnectAsync()
@@ -210,33 +235,6 @@ namespace Adafruit.MQTT.Client
             var result = await _client.UnsubscribeAsync(topics);
 
             return new UnSubscribeResult(result);
-        }
-
-        public IMqttClient OnConnected(Func<MqttClientConnectedEventArgs, Task> handler)
-        {
-            if (_client == null)
-            {
-                throw new Exception("Client not Init!");
-            }
-            return _client.UseConnectedHandler(handler);
-        }
-
-        public IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler)
-        {
-            if (_client == null)
-            {
-                throw new Exception("Client not Init!");
-            }
-            return _client.UseApplicationMessageReceivedHandler(handler);
-        }
-
-        public IMqttClient OnDisconnected(Func<MqttClientDisconnectedEventArgs, Task> handler)
-        {
-            if (_client == null)
-            {
-                throw new Exception("Client not Init!");
-            }
-            return _client.UseDisconnectedHandler(handler);
         }
 
         private string GetTopicFromFeedKey(string feedKey)
