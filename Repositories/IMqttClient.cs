@@ -38,18 +38,6 @@ namespace Adafruit.MQTT.Client.Repositories
         Task<UnSubscribeResult> UnSubscribeFeedAsync(params string[] feedKeys);
         Task<UnSubscribeResult> UnsubscribeTopicAsync(params string[] topics);
         #endregion
-        #region OnConnected
-        public delegate void ConnectedDelegate(MQTTnet.MqttApplicationMessageReceivedEventArgs eventArgs);
-        public event ConnectedDelegate OnConnected;
-        #endregion
-        #region OnMessageReceived
-        public delegate void MessageReceivedDelegate(MQTTnet.MqttApplicationMessageReceivedEventArgs eventArgs);
-        public event MessageReceivedDelegate OnMessageReceived;
-        #endregion
-        #region OnDisconnected
-        public delegate void DisconnectedDelegate(MQTTnet.MqttApplicationMessageReceivedEventArgs eventArgs);
-        public event DisconnectedDelegate OnDisconnected;
-        #endregion
 
     }
 }
