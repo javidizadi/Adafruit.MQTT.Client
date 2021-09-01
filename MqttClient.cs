@@ -13,6 +13,8 @@ using Adafruit.MQTT.Client.Models;
 using Adafruit.MQTT.Client.Models.Publishing;
 using Adafruit.MQTT.Client.Models.Subscribing;
 using Adafruit.MQTT.Client.Models.UnSubscribing;
+using MQTTnet.Client.Connecting;
+using MQTTnet.Client.Disconnecting;
 
 namespace Adafruit.MQTT.Client
 {
@@ -210,6 +212,15 @@ namespace Adafruit.MQTT.Client
             return new UnSubscribeResult(result);
         }
 
+        public IMqttClient OnConnected(Func<MqttClientConnectedEventArgs, Task> handler)
+        {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+            return _client.UseConnectedHandler(handler);
+        }
+
         public IMqttClient OnMessageReceived(Func<MqttApplicationMessageReceivedEventArgs, Task> handler)
         {
             if (_client == null)
@@ -217,6 +228,15 @@ namespace Adafruit.MQTT.Client
                 throw new Exception("Client not Init!");
             }
             return _client.UseApplicationMessageReceivedHandler(handler);
+        }
+
+        public IMqttClient OnDisconnected(Func<MqttClientDisconnectedEventArgs, Task> handler)
+        {
+            if (_client == null)
+            {
+                throw new Exception("Client not Init!");
+            }
+            return _client.UseDisconnectedHandler(handler);
         }
 
         private string GetTopicFromFeedKey(string feedKey)
