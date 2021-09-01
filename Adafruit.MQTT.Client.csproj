@@ -16,7 +16,6 @@ Powered By MQTTnet Nuget Package</Description>
     <PackageTags>adafruit mqtt client .netstandard standard .net c# iot</PackageTags>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>Javid.izadi.pfx</AssemblyOriginatorKeyFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
